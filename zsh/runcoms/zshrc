@@ -16,7 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 #load shared and private functions
-for function in ~/.zprezto/functions/*; do
+for function in ~/.dotfiles/zsh/includes/*; do
   source $function
 done
 
@@ -27,5 +27,5 @@ if [[ -d ~/.zsh_includes ]]; then
 fi
 
 #load shared and 'private' aliases
-[[ -f ~/.zprezto/aliases ]] && source ~/.zprezto/aliases
+[[ -f ~/.dotfiles/zsh/aliases ]] && source ~/.dotfiles/zsh/aliases
 [[ -f ~/.aliases ]] && source ~/.aliases

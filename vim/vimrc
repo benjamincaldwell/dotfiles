@@ -1,0 +1,35 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntax Highlighting
+syntax on
+" Use english for spellchecking, but don't spellcheck by default
+if version >= 700
+    set spl=en spell
+    set nospell
+endif
+
+" Allows backspacing over all characters
+set backspace=indent,eol,start
+" Allows using arrowkeys to wrap around lines (but not h,l)
+set whichwrap+=<,>
+" Shows Matching Braces
+set showmatch
+" Show line numbers
+set invnumber
+" Ctrl+N twice to toggle show line number
+nmap <C-N><C-N> :set invnumber<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Whitespacing
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+set smartindent
+set softtabstop=4
+
+" tabs are made of spaces
+set expandtab
+" Length of a tab
+set tabstop=4
+" Reindent width ( << and >>)
+set shiftwidth=4
+set autoindent
