@@ -1,0 +1,20 @@
+alias dns="Nslookup"
+alias fuck='sudo $(fc -nl -1)'
+alias hr='printf "%$(tput cols)s\n"|tr " " "="'
+alias HR='printf "%$(tput cols)s\n" `date`|tr " " "="'
+
+#IP alias
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+
+#processes
+alias listprocesses="ps aux"
+alias filterprocessess="psls"
+
+#ls alias
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+#port scan
+alias portscan="nmap -v"

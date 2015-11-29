@@ -1,0 +1,31 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+#load shared and private functions
+for function in ~/.zprezto/functions/*; do
+  source $function
+done
+
+if [[ -d ~/.zsh_includes ]]; then
+  for function in ~/.zsh_includes/*; do
+    source $function
+  done
+fi
+
+#load shared and 'private' aliases
+[[ -f ~/.zprezto/aliases ]] && source ~/.zprezto/aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
