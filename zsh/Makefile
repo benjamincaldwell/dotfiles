@@ -17,7 +17,7 @@ all:
 
 	@if [ ! -f ~/.zprezto ]; then \
 		echo "Installing zpretzo"; \
-        git clone --quiet --recursive  https://github.com/sorin-ionescu/prezto.git ~/.zprezto \
+        git clone --quiet --recursive  https://github.com/sorin-ionescu/prezto.git ~/.zprezto; \
     else \
 		echo "zpretzo is installed"; \
 	fi
