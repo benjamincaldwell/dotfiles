@@ -1,0 +1,56 @@
+[user]
+	name = Benjamin Caldwell
+	email = caldwellbenjamin8@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+	quotepath = false
+	editor = vim
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	whitespace = fix
+[alias]
+	# working -> index
+	ap = add -p
+	com = commit
+	cam = commit -am
+
+	#forget tracked files
+	forget = rm -r --cached . 
+
+	# git commit ammend
+	amend = "!git add -A && git commit --amend --reuse-message=HEAD"
+
+	# commit -> stagged ie undo last commit
+	ucom = reset --soft HEAD~1
+
+	# information
+	st = status -sb
+	d = diff
+	cached = diff --cached
+	stat = diff --stat
+	fliptable = "!echo '(╯°□°）╯︵ ┻━┻'; git reset --hard HEAD"
+	
+	# dealing with others
+
+	# miscellaneous
+	graph = log --graph --oneline --all --decorate
+	graph-detailed = log --graph --oneline --all --decorate --name-only
+	graph-full = log --graph --oneline --all --decorate --name-only
+[diff]
+	tool = Kaleidoscope
+[push]
+	default = matching
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

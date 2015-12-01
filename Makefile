@@ -4,7 +4,7 @@ all:
 	@$(MAKE) zsh
 	@$(MAKE) tmux
 	@$(MAKE) vim
-
+	@$(MAKE) git
 zsh:
 	@echo "Making zsh"
 	@$(MAKE) -C zsh
@@ -16,3 +16,7 @@ tmux:
 vim:
 	@echo "Making Vim"
 	$(MAKE) -C vim
+
+git:
+	@echo "Making Git"
+	$(MAKE) -C git
