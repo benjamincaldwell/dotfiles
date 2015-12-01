@@ -20,4 +20,4 @@ alias l='ls -CF'
 alias portscan="nmap -v"
 
 #git
-alais g="git"
+alias g="git"
