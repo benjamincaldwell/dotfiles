@@ -15,7 +15,7 @@ all:
 	@echo ""
 	@echo "Checking if zpretzo is installed"
 
-	@if [ -d "~/Dropbox" ]; then \
+	@if [ -d "~/.zprezto" ]; then \
 		echo "Installing zpretzo"; \
         git clone --quiet --recursive  https://github.com/sorin-ionescu/prezto.git ~/.zprezto \
     else \
