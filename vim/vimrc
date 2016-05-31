@@ -33,3 +33,5 @@ set tabstop=4
 " Reindent width ( << and >>)
 set shiftwidth=4
 set autoindent
+
+set paste

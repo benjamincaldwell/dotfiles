@@ -27,6 +27,8 @@
 	#forget tracked files
 	forget = rm -r --cached . 
 
+    yolo = commit --amend --no-edit
+
 	# git commit ammend
 	amend = "!git add -A && git commit --amend --reuse-message=HEAD"
 
