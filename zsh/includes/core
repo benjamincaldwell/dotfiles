@@ -1,6 +1,12 @@
 #! easy c++ compiling and running
 function crc++() {  g++ -std=c++11 -o output "$1";./output;rm -rf output;}
 
+#bundle exec
+alias bx="bundle exec"
+
+#docker compose
+alias dc="docker-compose"
+
 #up command to cd out of directories
 up() { [ $(( $1 + 0 )) -gt 0 ] && cd $(eval "printf '../'%.0s {1..$1}"); }
 
@@ -13,3 +19,5 @@ function psls(){ps aux | { read line;echo "$line";grep --color -E "$1";}}
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
+
+alias yolo='git add .; git commit --amend --no-edit'
