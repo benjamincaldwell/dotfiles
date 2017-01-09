@@ -29,3 +29,8 @@ fi
 #load shared and 'private' aliases
 [[ -f ~/.dotfiles/zsh/aliases ]] && source ~/.dotfiles/zsh/aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# added by devctl command
+[ -f /opt/devctl/devctl.sh ] && source /opt/devctl/devctl.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

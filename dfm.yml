@@ -1,0 +1,79 @@
+---
+
+repo: benjamincaldwell/dotfiles
+
+alias:
+  clone: git clone
+
+tasks:
+  devctl:
+    cmd:
+      - "curl -o- https://raw.githubusercontent.com/devctl/devctl/master/install.sh | bash
+"
+    links:
+      - devctl/devctlconfig:.devctlconfig
+  zsh:
+    links:
+      - zsh/runcoms/zlogin:.zlogin
+      - zsh/runcoms/zlogout:.zlogout
+      - zsh/runcoms/zpreztorc:.zpreztorc
+      - zsh/runcoms/zprofile:.zprofile
+      - zsh/runcoms/zshenv:.zshenv
+      - zsh/runcoms/zshrc:.zshrc
+      - zsh/prompt/prompt_benjamin_setup:.zprezto/modules/prompt/functions/prompt_benjamin_setup
+
+  git:
+    links:
+      - git/gitconfig:.gitconfig
+    deps:
+      - brew-git
+
+  tmux:
+    links:
+      - tmux/tmux.conf:.tmux.conf
+
+  vim:
+    links:
+      - vim/vimrc:.vimrc
+
+  brew:
+    when:
+      os: "darwin"
+      condition: "command -v brew"
+    cmd:
+      - "/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+
+  brew-zsh:
+    when:
+      os: "darwin"
+    cmd:
+      - brew install zsh zsh-completions
+    deps:
+      - brew
+
+  brew-git:
+    when:
+      os: "darwin"
+    cmd:
+      - brew install git
+    deps:
+      - brew
+
+  linux:
+    when:
+      os: "linux"
+    deps:
+      - zsh
+
+  darwin:
+    when:
+      os: "darwin"
+    deps:
+      - zsh
+      - git
+      - vim
+      - tmux
+      - brew
+      # - devctl
+    # cmd:
+    #   - bash mac.sh
