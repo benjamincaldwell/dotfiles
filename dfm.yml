@@ -1,6 +1,7 @@
 ---
 
 repo: benjamincaldwell/dotfiles
+srcDir: .dotfiles
 
 alias:
   clone: git clone
@@ -8,10 +9,10 @@ alias:
 tasks:
   devctl:
     cmd:
-      - "curl -o- https://raw.githubusercontent.com/devctl/devctl/master/install.sh | bash
-"
+      - "curl -o- https://raw.githubusercontent.com/devctl/devctl/master/install.sh | bash"
     links:
       - devctl/devctlconfig:.devctlconfig
+
   zsh:
     links:
       - zsh/runcoms/zlogin:.zlogin
@@ -21,6 +22,15 @@ tasks:
       - zsh/runcoms/zshenv:.zshenv
       - zsh/runcoms/zshrc:.zshrc
       - zsh/prompt/prompt_benjamin_setup:.zprezto/modules/prompt/functions/prompt_benjamin_setup
+    deps:
+      - zprezto
+      - brew-zsh
+
+  zprezto:
+    when:
+      condition: "[ ! -d ~/.zprezto ]"
+    cmd:
+      - git clone --quiet --recursive  https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 
   git:
     links:
@@ -38,8 +48,7 @@ tasks:
 
   brew:
     when:
-      os: "darwin"
-      condition: "command -v brew"
+      notInstalled: brew
     cmd:
       - "/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
 
@@ -74,6 +83,6 @@ tasks:
       - vim
       - tmux
       - brew
-      # - devctl
-    # cmd:
-    #   - bash mac.sh
+      - devctl
+    cmd:
+      - bash macos/macos.sh
