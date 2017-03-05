@@ -12,11 +12,10 @@ defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 ###DOCK
 ######################################################################################
 #dock autohide
-defaults write com.apple.dock autohide -bool true 
+defaults write com.apple.dock autohide -bool true
 
 # dock animation speed
 defaults write com.apple.dock autohide-time-modifier -float 0.3
-killall Dock
 
 # dock time before running animation
 defaults write com.apple.dock autohide-delay -float 0
@@ -39,5 +38,11 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # increase keyboard repeat
-defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
-defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+
+# show batery percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+killall Dock
+killall SystemUIServer
