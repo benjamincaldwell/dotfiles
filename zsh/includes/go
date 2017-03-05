@@ -1,0 +1,2 @@
+export PATH="$PATH:${HOME}/go"
+export GOPATH="${HOME}/go:${HOME}/src"

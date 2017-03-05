@@ -21,3 +21,5 @@ alias portscan="nmap -v"
 
 #git
 alias g="git"
+
+alias d="devctl"

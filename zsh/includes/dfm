@@ -1,0 +1,8 @@
+function dfm () {
+  if [ "$1" == "cd" ]
+  then
+    cd $(command dfm path)
+  	return 0
+  fi
+  command dfm "$@"
+}

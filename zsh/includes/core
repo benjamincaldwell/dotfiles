@@ -7,9 +7,6 @@ alias bx="bundle exec"
 #docker compose
 alias dc="docker-compose"
 
-#dfm
-alias dfm-cd="cd $(dfm path)"
-
 #up command to cd out of directories
 up() { [ $(( $1 + 0 )) -gt 0 ] && cd $(eval "printf '../'%.0s {1..$1}"); }
 
