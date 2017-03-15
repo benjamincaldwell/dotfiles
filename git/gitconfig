@@ -1,6 +1,7 @@
 [user]
 	name = Benjamin Caldwell
 	email = caldwellbenjamin8@gmail.com
+	signingkey = 3B61BE40
 #	signingkey = 9949231A
 [core]
 	excludesfile = /Users/benjamincaldwell/.gitignore_global
@@ -63,3 +64,7 @@
 #	program = /usr/local/bin/gpg
 #[github]
 #	token = b967aeaf05841750a6689a58ac91c59f19b629cd
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg

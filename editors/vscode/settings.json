@@ -1,0 +1,20 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.tabSize": 2,
+    // When enabled, will trim trailing whitespace when saving a file.
+    "files.trimTrailingWhitespace": true,
+
+    // When enabled, insert a final new line at the end of the file when saving it.
+    "files.insertFinalNewline": true,
+
+    // Go
+    "go.testOnSave": true,
+    "go.coverOnSave": true,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+
+    // Ruby
+    "ruby.interpreter.commandPath": "/usr/bin/ruby",
+    "ruby.lint": {
+        "rubocop": true
+    }
+  }

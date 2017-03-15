@@ -144,7 +144,7 @@ tasks:
     deps:
       - brew-go
     cmd:
-      - mkdir "${HOME}/go"
+      - mkdir -p "${HOME}/go/bin"
 
   brew-go:
     when:
@@ -154,3 +154,9 @@ tasks:
       - brew install go
     deps:
       - brew
+
+  gore:
+    deps:
+      - go
+    cmd:
+      - go get -u github.com/motemen/gore
