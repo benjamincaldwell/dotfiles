@@ -12,9 +12,6 @@ fi
 
 # Customize to your needs...
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
 #load shared and private functions
 for function in ~/.dotfiles/zsh/includes/*; do
   source $function
@@ -32,5 +29,3 @@ fi
 
 # added by devctl command
 [ -f /opt/devctl/devctl.sh ] && source /opt/devctl/devctl.sh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

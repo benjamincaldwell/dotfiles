@@ -1,12 +1,31 @@
 ---
 
-repo: benjamincaldwell/dotfiles
+repo: git@gitlab.caldwellbenjam.in:benjamin/dotfiles.git
 srcDir: .dotfiles
 
 alias:
   clone: git clone
 
 tasks:
+  linux:
+    when:
+      os: "linux"
+    deps:
+      - zsh
+  darwin:
+    when:
+      os: "darwin"
+    deps:
+      - zsh
+      - git
+      - vim
+      - tmux
+      - brew
+      - devctl
+    cmd:
+      - bash macos/macos.sh
+      - ruby macos appstore.rb
+
   devctl:
     cmd:
       - "curl -o- https://raw.githubusercontent.com/devctl/devctl/master/install.sh | bash"
@@ -22,6 +41,9 @@ tasks:
       - zsh/runcoms/zshenv:.zshenv
       - zsh/runcoms/zshrc:.zshrc
       - zsh/prompt/prompt_benjamin_setup:.zprezto/modules/prompt/functions/prompt_benjamin_setup
+    cmd:
+      - mkdir ${HOME}/.zsh_includes
+      - touch ${HOME}/.aliases
     deps:
       - zprezto
       - brew-zsh
@@ -68,21 +90,73 @@ tasks:
     deps:
       - brew
 
-  linux:
+  vscode:
     when:
-      os: "linux"
-    deps:
-      - zsh
-
-  darwin:
-    when:
-      os: "darwin"
-    deps:
-      - zsh
-      - git
-      - vim
-      - tmux
-      - brew
-      - devctl
+      notInstalled: code
+      # os: "darwin"
     cmd:
-      - bash macos/macos.sh
+      - brew cask install visual-studio-code
+      - sh ~/.dotfiles/editors/vscode
+    deps:
+      - brew
+
+  vscode-extensions:
+    cmd:
+      - sh
+    # os: "darwin"
+    vscode:
+      when:
+        notInstalled: brew
+      cmd:
+        - brew cask install visual-studio-code
+      deps:
+        - brew
+
+  atom:
+    when:
+      notInstalled: atom
+      # os: "darwin"
+    cmd:
+      - brew cask install atom
+    deps:
+      - brew
+
+  sublime-text:
+    when:
+      notInstalled: subl
+    cmd:
+      - brew cask install sublime-text
+    deps:
+      - brew
+
+  appcleaner:
+    when:
+      notInstalled: subl
+      # os: "darwin"
+    cmd:
+      - brew cask install appcleaner
+    deps:
+      - brew
+
+  go:
+    when:
+      notInstalled: go
+    deps:
+      - brew-go
+    cmd:
+      - mkdir -p "${HOME}/go/bin"
+
+  brew-go:
+    when:
+      # notInstalled: go
+      os: "darwin"
+    cmd:
+      - brew install go
+    deps:
+      - brew
+
+  gore:
+    deps:
+      - go
+    cmd:
+      - go get -u github.com/motemen/gore
