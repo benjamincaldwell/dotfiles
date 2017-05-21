@@ -1,0 +1,4 @@
+function kubeexec(){ kubectl exec "$1" -i -t -- /bin/sh -il }
+alias k=kubectl
+
+source <(kubectl completion zsh)
