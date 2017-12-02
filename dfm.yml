@@ -7,6 +7,13 @@ alias:
   clone: git clone
 
 tasks:
+  core:
+    deps:
+      - dfm_config
+      - zsh
+      - go
+      - ruby
+
   linux:
     when:
       os: "linux"
@@ -16,7 +23,7 @@ tasks:
     when:
       os: "darwin"
     deps:
-      - zsh
+      - core
       - git
       - vim
       - tmux
@@ -25,6 +32,10 @@ tasks:
     cmd:
       - bash macos/macos.sh
       - ruby macos appstore.rb
+
+  dfm_config:
+    links:
+      - dfm.yml:dfm.yml
 
   devctl:
     cmd:
@@ -131,7 +142,7 @@ tasks:
 
   appcleaner:
     when:
-      notInstalled: subl
+      notInstalled: appcleaner
       # os: "darwin"
     cmd:
       - brew cask install appcleaner
@@ -160,3 +171,18 @@ tasks:
       - go
     cmd:
       - go get -u github.com/motemen/gore
+
+  ruby:
+    when:
+      notInstalled: rvm
+    cmd:
+      - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+      - curl -sSL https://get.rvm.io | bash
+
+  rubocop:
+    deps:
+      - ruby
+    cmd:
+      - gem install rubocop
+    links:
+      - linters/.rubocop.yml:.rubocop.yml
