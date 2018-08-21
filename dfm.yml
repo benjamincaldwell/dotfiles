@@ -1,6 +1,6 @@
 ---
 
-repo: git@gitlab.caldwellbenjam.in:benjamin/dotfiles.git
+repo: git@github.com:bcaldwell/dotfiles.git
 srcDir: .dotfiles
 
 alias:
