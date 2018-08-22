@@ -4,9 +4,11 @@ inherit_from:
 AllCops:
   Exclude:
     - 'vendor/**/*'
-  # TargetRubyVersion: 1.9
+  TargetRubyVersion: 2.4
 
 # some changes to support older ruby versions
 Layout/IndentHeredoc:
   # only works in ruby 2.3+
   EnforcedStyle: unindent
+
+

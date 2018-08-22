@@ -1,4 +1,10 @@
 function kubeexec(){ kubectl exec "$1" -i -t -- /bin/sh -il }
 alias k=kubectl
 
+# tiller environment variable settings
+export TILLER_NAMESPACE=helm
+export TILLER_TLS_ENABLE=true
+
+
+
 source <(kubectl completion zsh)

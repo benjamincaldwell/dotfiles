@@ -10,7 +10,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+[[ -s ~/.zplug/init.zsh ]] && source ~/.zplug/init.zsh
 
 #load shared and private functions
 for function in ~/.dotfiles/zsh/includes/*; do
@@ -27,8 +27,9 @@ fi
 [[ -f ~/.dotfiles/zsh/aliases ]] && source ~/.dotfiles/zsh/aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-# added by devctl command
-[ -f /opt/devctl/devctl.sh ] && source /opt/devctl/devctl.sh
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+zplug load 
+
+[ -f /Users/benjamincaldwell/.devctl/devctl.sh ] && \. /Users/benjamincaldwell/.devctl/devctl.sh # This loads devctl shell super powers

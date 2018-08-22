@@ -16,6 +16,7 @@ defaults write com.apple.dock autohide -bool true
 
 # dock animation speed
 defaults write com.apple.dock autohide-time-modifier -float 0.3
+killall Dock
 
 # dock time before running animation
 defaults write com.apple.dock autohide-delay -float 0
@@ -40,9 +41,3 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # increase keyboard repeat
 defaults write -g InitialKeyRepeat -int 20 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
-
-# show batery percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-
-killall Dock
-killall SystemUIServer
